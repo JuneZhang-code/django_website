@@ -1,0 +1,53 @@
+{% extends "Newsletter/base.html" %}
+{% load static %}
+
+{% block content %}
+<br>
+    <br>
+    <br>
+    <br>
+
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+
+                  <h1>A newsletter, Studio, and community of Founders leading the future</h1>
+
+        </div>
+    </div>
+<br>
+<br>
+
+
+
+
+    <h3 class="mt-5">Newsletter</h3>
+    <br>
+    <div class="list mb-2">
+      {% for newsletter in newsletters %}
+      <div class="card border-0">
+          <div class="row no-gutters">
+            <div class="col-auto">
+            {% if newsletter.url %}
+            <a href="{{ newsletter.url }}">
+              <img  src="{{ newsletter.image.url }}" height='200' width="400" >
+            </a>
+            {% else %}
+
+            <img  src="{{ newsletter.image.url }}" height='200' width="400" >
+            {% endif %}
+            </div>
+            <div class="col">
+              <div class="card-block px-2">
+                <h4 class= "pl-sm-5 card-title ">{{ newsletter.title }}</h4>
+                <p class= "pl-sm-5 card-text text-justify">{{ newsletter.description }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  <br>
+ {% endfor %}
+</div>
+
+
+
+{% endblock %}

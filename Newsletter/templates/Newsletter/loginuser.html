@@ -1,0 +1,27 @@
+{% extends "Newsletter/base.html" %}
+
+
+
+{% load crispy_forms_tags %}
+
+<!--Login-->
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class= "text-justify">
+  <h3>Login</h3>
+  <form method="POST" class='form-group'>
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <p>Don't have an account? <a href="/signup">Create an account</a>.</p>
+    <button class="btn btn-primary" type="submit">Login</button>
+
+  </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "Newsletter/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2 id="Projecttitle" class="font-weight-bold text-center">Projects</h2>
+
+
+{% for Project in Projects %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'Project:detail' Project.id %}">
+      <h3>{{ Project.title }}</h3>
+    </a>
+    <h5 class="text-muted">{{ Project.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ Project.description|striptags|truncatechars:100 }}</h4>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
